@@ -36,7 +36,10 @@
 {
     [self.navigationController popViewControllerAnimated:true];
 }
-
+-(void)my
+{
+    
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     self.createitemdict = [[NSMutableDictionary alloc]init];
