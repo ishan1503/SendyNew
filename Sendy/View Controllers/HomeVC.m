@@ -8,7 +8,7 @@
 
 #import "HomeVC.h"
 #import "ProfileSetupVC.h"
-
+#import "CourierOptionVC.h"
 @interface HomeVC ()
 {
     IBOutlet UITableView *tableview;
@@ -39,5 +39,10 @@
     profileSetupVC.isComingtoEdit=YES;
     [self.navigationController showViewController:profileSetupVC sender:nil];
 }
-
+-(IBAction)deliverButtonPress:(id)sender
+{
+    UIStoryboard *deliveryStoryBoard=[UIStoryboard storyboardWithName:@"Delivery" bundle:nil];
+    CourierOptionVC *obj=[deliveryStoryBoard instantiateInitialViewController];
+    [self.navigationController pushViewController:obj animated:YES];
+}
 @end

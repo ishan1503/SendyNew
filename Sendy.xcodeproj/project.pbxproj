@@ -435,6 +435,8 @@
 		95F0CEDF1B134A680061BEE0 /* resend@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F0CEDB1B134A680061BEE0 /* resend@3x.png */; };
 		95F0CEE01B134A680061BEE0 /* verify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F0CEDC1B134A680061BEE0 /* verify@2x.png */; };
 		95F0CEE11B134A680061BEE0 /* verify@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F0CEDD1B134A680061BEE0 /* verify@3x.png */; };
+		95FE55761CCAB81D0008C9EC /* CourierOptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FE55751CCAB81D0008C9EC /* CourierOptionVC.m */; };
+		95FE55781CCAB9220008C9EC /* Delivery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FE55771CCAB9220008C9EC /* Delivery.storyboard */; };
 		95FEE0971B638B5400967104 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FEE0961B638B5400967104 /* UILabel+Extra.m */; };
 		95FEE0A61B638C0C00967104 /* reportspam.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE0991B638C0B00967104 /* reportspam.png */; };
 		95FEE0A71B638C0C00967104 /* reportspam@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95FEE09A1B638C0B00967104 /* reportspam@2x.png */; };
@@ -981,6 +983,9 @@
 		95F0CEDB1B134A680061BEE0 /* resend@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resend@3x.png"; sourceTree = "<group>"; };
 		95F0CEDC1B134A680061BEE0 /* verify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify@2x.png"; sourceTree = "<group>"; };
 		95F0CEDD1B134A680061BEE0 /* verify@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify@3x.png"; sourceTree = "<group>"; };
+		95FE55741CCAB81D0008C9EC /* CourierOptionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourierOptionVC.h; sourceTree = "<group>"; };
+		95FE55751CCAB81D0008C9EC /* CourierOptionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourierOptionVC.m; sourceTree = "<group>"; };
+		95FE55771CCAB9220008C9EC /* Delivery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Delivery.storyboard; sourceTree = "<group>"; };
 		95FEE0951B638B5400967104 /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
 		95FEE0961B638B5400967104 /* UILabel+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extra.m"; sourceTree = "<group>"; };
 		95FEE0991B638C0B00967104 /* reportspam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportspam.png; sourceTree = "<group>"; };
@@ -1275,6 +1280,7 @@
 				952BD7951B0F91EF0098ADC3 /* Third Party */,
 				952BD7961B0F91EF0098ADC3 /* View Controllers */,
 				952BD7781B0F916A0098ADC3 /* Main.storyboard */,
+				95FE55771CCAB9220008C9EC /* Delivery.storyboard */,
 				952BD77B1B0F916A0098ADC3 /* Images.xcassets */,
 				952BD77D1B0F916A0098ADC3 /* LaunchScreen.xib */,
 				952BD7721B0F91690098ADC3 /* Sendy.xcdatamodeld */,
@@ -1413,6 +1419,7 @@
 		952BD7961B0F91EF0098ADC3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95FE55731CCAB7B70008C9EC /* Delivery Module */,
 				67D5AABB1C8DF3A400353F0E /* tabbar */,
 				67F89DF71C10C52D00DEB0B3 /* ChatMessageTableViewCell.h */,
 				67F89DF81C10C52E00DEB0B3 /* ChatMessageTableViewCell.m */,
@@ -1889,6 +1896,15 @@
 			path = "Service Controller";
 			sourceTree = "<group>";
 		};
+		95FE55731CCAB7B70008C9EC /* Delivery Module */ = {
+			isa = PBXGroup;
+			children = (
+				95FE55741CCAB81D0008C9EC /* CourierOptionVC.h */,
+				95FE55751CCAB81D0008C9EC /* CourierOptionVC.m */,
+			);
+			name = "Delivery Module";
+			sourceTree = "<group>";
+		};
 		95FEE0981B638C0B00967104 /* My Delivery Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -2035,6 +2051,7 @@
 				9536D1221B559879007F26C2 /* mail.png in Resources */,
 				95AE65711B41B79600F7D77F /* divider.png in Resources */,
 				95F0CEDE1B134A680061BEE0 /* resend@2x.png in Resources */,
+				95FE55781CCAB9220008C9EC /* Delivery.storyboard in Resources */,
 				95FEE0B61B638CF700967104 /* check_gray@2x.png in Resources */,
 				67D5AB5C1C91FC9E00353F0E /* distance.png in Resources */,
 				67EEC6581CCAA0480058DC79 /* modifybtn.png in Resources */,
@@ -2410,6 +2427,7 @@
 				95D9E4FA1BDD028C0072FF73 /* AwardedSenderDetail.m in Sources */,
 				95999F2B1B5ADD470010AE8A /* TPFloatRatingView.m in Sources */,
 				67F89E0F1C10C74700DEB0B3 /* DTTimePeriod.m in Sources */,
+				95FE55761CCAB81D0008C9EC /* CourierOptionVC.m in Sources */,
 				9599A9551BD5637B008D00D8 /* ProfileSetupCell.m in Sources */,
 				954924251B7F2617000E57D2 /* ConversationVC.m in Sources */,
 				95F0CE761B119E700061BEE0 /* WelcomeScreenVC.m in Sources */,

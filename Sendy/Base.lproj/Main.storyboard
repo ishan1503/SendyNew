@@ -1038,6 +1038,9 @@
                                     <constraint firstAttribute="width" constant="254" id="zme-Zv-9ae"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="deliver.png"/>
+                                <connections>
+                                    <action selector="deliverButtonPress:" destination="scL-YF-CES" eventType="touchUpInside" id="5fY-Ya-0BN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXD-3h-n6p">
                                 <rect key="frame" x="35" y="255" width="251" height="59"/>
