@@ -38,6 +38,12 @@
     [mapview_selectloc setMapType:MKMapTypeStandard];
     [mapview_selectloc setZoomEnabled:YES];
     [mapview_selectloc setScrollEnabled:YES];
+    if([[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+    {
+        itemtxt.text = [[AppDelegate getAppDelegate].senderDeliverydata objectForKey:@"itemName"];
+        self.fromAddress =  [[AppDelegate getAppDelegate].senderDeliverydata objectForKey:@"fromAddress"];
+        self.toAddress = [[AppDelegate getAppDelegate].senderDeliverydata objectForKey:@"toAddress"];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

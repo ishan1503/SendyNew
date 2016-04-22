@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
+    [AppDelegate getAppDelegate].ismodifyjob = @"createnewitem";
 }
 
 -(IBAction)addButtonPress:(id)sender

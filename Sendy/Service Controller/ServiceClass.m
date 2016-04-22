@@ -918,15 +918,14 @@
          {
              [[AppDelegate getAppDelegate] hideLoadingView];
              [AppHelper showAlertViewWithTag:101 title:App_Name message:[parsedData objectForKey:@"Message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-             
          }
      }
           failure: ^(AFHTTPRequestOperation *operation, NSError *error)
      {
-         
          [[AppDelegate getAppDelegate] hideLoadingView];
      }];
 }
+
 -(void)activityPressed:(NSMutableDictionary *)dictionary andMethodName:(NSString *)methodName
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -1059,6 +1058,33 @@
              [[AppDelegate getAppDelegate] hideLoadingView];
              [AppHelper showAlertViewWithTag:101 title:App_Name message:[parsedData objectForKey:@"Message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         }
+     }
+          failure: ^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [[AppDelegate getAppDelegate] hideLoadingView];
+     }];
+}
+
+
+-(void)modifyPost:(NSMutableDictionary *)dictionary
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    manager.requestSerializer.timeoutInterval = 40;
+    [manager POST:[BaseUrl stringByAppendingString:modifyPostedJobs] parameters:dictionary success: ^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         id parsedData   = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+         NSLog(@"%@",parsedData);
+         if([[parsedData objectForKey:@"Status"] intValue]==1)
+         {
+             [[AppDelegate getAppDelegate] hideLoadingView];
+             [[NSNotificationCenter defaultCenter] postNotificationName:modify_postedjob_notification object:[parsedData objectForKey:@"Payload"]];
+         }
+         else
+         {
+             [[AppDelegate getAppDelegate] hideLoadingView];
+             [AppHelper showAlertViewWithTag:101 title:App_Name message:[parsedData objectForKey:@"Message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         }
      }
           failure: ^(AFHTTPRequestOperation *operation, NSError *error)
      {

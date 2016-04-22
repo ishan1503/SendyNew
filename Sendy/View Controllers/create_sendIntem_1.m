@@ -36,15 +36,14 @@
 {
     [self.navigationController popViewControllerAnimated:true];
 }
--(void)my
-{
-    
-}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     self.createitemdict = [[NSMutableDictionary alloc]init];
-    [AppDelegate getAppDelegate].senderDeliverydata = [[NSMutableDictionary alloc]init];
-    if([segue.identifier isEqualToString:@"localtosend2"])
+    if(![[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+    {
+        [AppDelegate getAppDelegate].senderDeliverydata = [[NSMutableDictionary alloc]init];
+    }    if([segue.identifier isEqualToString:@"localtosend2"])
     {
         [[AppDelegate getAppDelegate].senderDeliverydata setObject:@"local" forKey:@"jobType"];
     }

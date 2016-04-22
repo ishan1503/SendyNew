@@ -48,5 +48,6 @@
 -(void)postdeliverysender:(NSMutableDictionary *)dictionary;
 -(void)getPostedjobListing:(NSDictionary *)dictionary;
 -(void)deletepost:(NSMutableDictionary *)dictionary;
+-(void)modifyPost:(NSMutableDictionary *)dictionary;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "postedjobsListingVC.h"
+#import "create_sendIntem_1.h"
+#import "ProfileSetupVC.h"
 
 @interface postedjobsListingVC ()
 {
@@ -284,12 +286,9 @@
     [AppDelegate getAppDelegate].ismodifyjob = @"modifydata";
     [[AppDelegate getAppDelegate].senderDeliverydata removeAllObjects];
     [AppDelegate getAppDelegate].senderDeliverydata = [postedjobarr objectAtIndex:indexPath.section];
-
-    
-//    NSDictionary *dataDict= [postedjobarr objectAtIndex:indexPath.section];
-//    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-//    [dict setObject:dataDict[@"itemId"] forKey:@"itemId"];
-    //[[ServiceClass sharedServiceClass] deletepost:dict];
+    UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    create_sendIntem_1 *profileSetupVC=[mainStoryBoard instantiateViewControllerWithIdentifier:@"create_sendIntem_1"];
+    [self.navigationController showViewController:profileSetupVC sender:nil];
 }
 
 -(void)deletepost:(id)sender
@@ -307,6 +306,20 @@
 -(void)deletepostresponse:(NSNotification *)not
 {
     [[NSNotificationCenter defaultCenter]removeObserver:delete_postedjob_notification];
+}
+
+
+- (IBAction)backAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:true];
+    
+}
+- (IBAction)openProfile:(id)sender
+{
+    UIStoryboard *mainStoryBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileSetupVC *profileSetupVC=[mainStoryBoard instantiateViewControllerWithIdentifier:@"ProfileSetupVC"];
+    profileSetupVC.isComingtoEdit=YES;
+    [self.navigationController showViewController:profileSetupVC sender:nil];
 }
 
 

@@ -124,11 +124,12 @@
 #define inProgressJobs          @"inProgressJobs"
 #define completedJobs           @"completedJobs"
 #define deletePostedJobs        @"deletePostedJobs"
+#define modifyPostedJobs        @"modifyPostedJobs"
 
 //notifications
 #define create_item_notification    @"create_item_notification"
 #define Posted_job_Listing          @"Posted_job_Listing"
 #define delete_postedjob_notification   @"delete_postedjob_notification"
-
+#define modify_postedjob_notification   @"modify_postedjob_notification"
 #endif
 

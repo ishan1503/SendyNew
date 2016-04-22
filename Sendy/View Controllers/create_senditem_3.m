@@ -35,6 +35,28 @@
         [postbtn setImage:[UIImage imageNamed:@"postjob.png"] forState:UIControlStateNormal];
     }
     NSLog(@"%@", [AppDelegate getAppDelegate].senderDeliverydata);
+    
+    if([[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+    {
+        NSString* sizetype =  (NSString*)[[AppDelegate getAppDelegate].senderDeliverydata objectForKey:@"size"];
+        if([sizetype  isEqual: @"XS"])
+        {
+            selectedindex = [NSIndexPath indexPathForRow:0 inSection:0];
+        }
+        else if ([sizetype  isEqual: @"S"])
+        {
+            selectedindex = [NSIndexPath indexPathForRow:1 inSection:0];
+        }
+        else if ([sizetype  isEqual: @"M"])
+        {
+            selectedindex = [NSIndexPath indexPathForRow:2 inSection:0];
+        }
+        else if ([sizetype  isEqual: @"L"])
+        {
+            selectedindex = [NSIndexPath indexPathForRow:3 inSection:0];
+        }
+    }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -72,6 +94,13 @@
     UILabel *sizedesc=(UILabel *)[cell.contentView viewWithTag:11];
     UIImageView *itemimg=(UIImageView *)[cell.contentView viewWithTag:12];
     UIImageView *itemsizeimg=(UIImageView *)[cell.contentView viewWithTag:9];
+    if([[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+    {
+        if(selectedindex == indexPath)
+        {
+            cell.selectionStyle = true;
+        }
+    }
     if (indexPath.row == 0)
     {
         sizename.text = @"FITS IN A POCKET";
@@ -137,13 +166,38 @@
     else
     {
         [[AppDelegate getAppDelegate].senderDeliverydata setObject:UserID forKey:@"userId"];
-        [[ServiceClass sharedServiceClass] postdeliverysender:[AppDelegate getAppDelegate].senderDeliverydata];
+        if([[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+        {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modifyitemResponse:) name:modify_postedjob_notification object:nil];
+            [[ServiceClass sharedServiceClass] modifyPost:[AppDelegate getAppDelegate].senderDeliverydata];
+        }
+        else
+        {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createitemResponse:) name:create_item_notification object:nil];
+
+            [[ServiceClass sharedServiceClass] postdeliverysender:[AppDelegate getAppDelegate].senderDeliverydata];
+        }
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     selectedindex = indexPath;
+}
+
+-(void)createitemResponse:(NSNotification *)notif
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:create_item_notification object:nil];
+    [AppHelper showAlertViewWithTag:101145 title:App_Name message:@"Item successfully created" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:self.navigationController.viewControllers.count-4] animated:true];
+}
+
+
+-(void)modifyitemResponse:(NSNotification *)notif
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:modify_postedjob_notification];
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:self.navigationController.viewControllers.count-4] animated:true];
+
 }
 
 @end

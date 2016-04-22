@@ -106,16 +106,32 @@
     [[AppDelegate getAppDelegate].senderDeliverydata setObject:UserID forKey:@"userId"];
 
     NSLog(@"%@", [AppDelegate getAppDelegate].senderDeliverydata);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createitemResponse:) name:create_item_notification object:nil];
-    [[ServiceClass sharedServiceClass] postdeliverysender:[AppDelegate getAppDelegate].senderDeliverydata];
 
+    if([[AppDelegate getAppDelegate].ismodifyjob  isEqual: @"modifydata"])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(modifyitemResponse:) name:modify_postedjob_notification object:nil];
+        [[ServiceClass sharedServiceClass] modifyPost:[AppDelegate getAppDelegate].senderDeliverydata];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createitemResponse:) name:create_item_notification object:nil];
+        [[ServiceClass sharedServiceClass] postdeliverysender:[AppDelegate getAppDelegate].senderDeliverydata];
+    }
 }
 
 -(void)createitemResponse:(NSNotification *)notif
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:create_item_notification object:nil];
     [AppHelper showAlertViewWithTag:101145 title:App_Name message:@"Item successfully created" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-   // [self.navigationController popToViewController:<#(UIViewController *)#> animated:YES];
+    [[AppDelegate getAppDelegate].senderDeliverydata removeAllObjects];
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:self.navigationController.viewControllers.count-5] animated:true];
 }
 
+-(void)modifyitemResponse:(NSNotification *)notif
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:modify_postedjob_notification];
+    [[AppDelegate getAppDelegate].senderDeliverydata removeAllObjects];
+    [AppDelegate getAppDelegate].ismodifyjob = @"createnewitem";
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:self.navigationController.viewControllers.count-5] animated:true];
+}
 @end
