@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0FBC0C75-EF6C-4285-9FA3-DD26FE67DF40</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>ce32b143-6d55-43d8-a249-05a9fdc4a610++6904</key>
+		<string>http://192.168.1.100/svn/iphone_all/Prateek%2520Verma/Dubit%252030%2520July/Dubit_Code/Dubit/Vendor</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>ce32b143-6d55-43d8-a249-05a9fdc4a610++6904</key>
+		<string>Vendor/</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>ce32b143-6d55-43d8-a249-05a9fdc4a610++6904</key>
+		<string>http://192.168.1.100/svn/iphone_all</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://192.168.1.100/svn/iphone_all/Prateek%2520Verma/Dubit%252030%2520July/Dubit_Code/Dubit/Vendor</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ce32b143-6d55-43d8-a249-05a9fdc4a610++6904</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ce32b143-6d55-43d8-a249-05a9fdc4a610++6904</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Vendor</string>
+		</dict>
+	</array>
+</dict>
+</plist>
