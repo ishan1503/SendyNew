@@ -30,7 +30,17 @@
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender
 {
-    [tableview reloadData];
+    
+    if(activitySegmentControl.selectedSegmentIndex == 0)
+    {
+    
+    }
+    else
+    {
+    [[[UIAlertView alloc] initWithTitle:App_Name message:@"Under Development" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        [activitySegmentControl setSelectedSegmentIndex:0];
+    }
+    //[t{}ableview reloadData];
 }
 
 #pragma mark-Tablview Delegate & DataSource

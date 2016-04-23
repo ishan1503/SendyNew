@@ -109,14 +109,10 @@
     if(alertView.tag==10111 && buttonIndex!=alertView.cancelButtonIndex)
     {
         NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-
         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-        
-        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNavigation"];
+        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login_regNavigation"];
         [AppDelegate getAppDelegate].window.rootViewController=loginVC;
     }
-    
-
 }
 /*
 #pragma mark - Navigation

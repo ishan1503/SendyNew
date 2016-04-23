@@ -122,6 +122,19 @@
          self.address=locatedAt;
          location1.latitude = droppedAt.latitude;
          location1.longitude = droppedAt.longitude;
+         if(self.creatsenditem2obj)
+         {
+             if(self.isOPenForTo)
+             {
+                 self.creatsenditem2obj.fromAddress = address;
+                 self.creatsenditem2obj.fromAddressLocation = location1;
+             }
+             else
+             {
+                 self.creatsenditem2obj.toAddress = address;
+                 self.creatsenditem2obj.toAddressLocation = location1;
+             }
+         }
          if(self.createItemVC)
          {
              if(self.isOPenForTo)
