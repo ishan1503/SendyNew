@@ -42,7 +42,7 @@
 -(IBAction)deliverButtonPress:(id)sender
 {
     UIStoryboard *deliveryStoryBoard=[UIStoryboard storyboardWithName:@"Delivery" bundle:nil];
-    CourierOptionVC *obj=[deliveryStoryBoard instantiateInitialViewController];
+    CourierOptionVC *obj=[deliveryStoryBoard instantiateViewControllerWithIdentifier:@"CourierOptionVC"];
     [self.navigationController pushViewController:obj animated:YES];
 }
 @end
