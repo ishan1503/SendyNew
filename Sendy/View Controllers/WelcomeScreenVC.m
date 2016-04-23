@@ -263,9 +263,10 @@
 
         NSDictionary *dict3=(NSDictionary *)[AppHelper unarchiveForKey:@"ParamForLocalDelivery"];
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        HomeVC  *ConversationVC_obj=[storyBoard instantiateViewControllerWithIdentifier: @"HomeVC"];
-        [self.navigationController pushViewController:ConversationVC_obj animated:YES];
+        [[AppDelegate getAppDelegate] addTabbar];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        HomeVC  *ConversationVC_obj=[storyBoard instantiateViewControllerWithIdentifier: @"HomeVC"];
+//        [self.navigationController pushViewController:ConversationVC_obj animated:YES];
 
         
         [AppHelper archive:dict1 withKey:@"UserInfo"];

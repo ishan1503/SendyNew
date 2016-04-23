@@ -229,19 +229,15 @@
     [[AppDelegate getAppDelegate] showLoadingView:@"Please Wait..."];
     FBSDKLoginManager *FBlogin = [[FBSDKLoginManager alloc] init];
     [FBlogin logOut];
-
     [FBlogin logInWithReadPermissions:@[@"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error)
         {
             [[AppDelegate getAppDelegate] hideLoadingView];
-            
             [AppHelper showAlertViewWithTag:101 title:App_Name message:[NSString stringWithFormat:@"%@",error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            
         }
         else if (result.isCancelled)
         {
             [[AppDelegate getAppDelegate] hideLoadingView];
-            
             [AppHelper showAlertViewWithTag:101 title:App_Name message:@"You have cancel the authentication process." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         }
         else
