@@ -3275,9 +3275,6 @@ Terms &amp; Condition and Privacy Policy</string>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="profilebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="cSC-ih-w61">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
-                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
-                                        </variation>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="myprofile@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="VVl-hU-RQ9">
                                         <rect key="frame" x="110" y="8" width="100" height="100"/>
@@ -3285,9 +3282,6 @@ Terms &amp; Condition and Privacy Policy</string>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Y9F-n4-VCW"/>
                                         </constraints>
-                                        <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="110" y="8" width="100" height="150"/>
-                                        </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzk-eM-4oS">
                                         <rect key="frame" x="148" y="98" width="25" height="25"/>
@@ -6919,7 +6913,7 @@ YOUR PARCELS</string>
                                         </segments>
                                         <color key="tintColor" red="0.16078431369999999" green="0.6588235294" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="segmentChanged:" destination="azD-Lv-ewU" eventType="valueChanged" id="2ul-Ot-eHR"/>
+                                            <action selector="segmentChanged:" destination="y8Z-yb-FZw" eventType="valueChanged" id="H8N-Da-rlP"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -7024,6 +7018,9 @@ YOUR PARCELS</string>
                     </view>
                     <navigationItem key="navigationItem" id="5tk-xR-mPC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="activitySegmentControl" destination="h8q-9y-Rrw" id="Uti-8j-vYE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izF-BI-tuO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -7303,7 +7300,7 @@ YOUR PARCELS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="304" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="501" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bz-Lq-dJF">
+                                                <button opaque="NO" tag="501" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bz-Lq-dJF">
                                                     <rect key="frame" x="45" y="16" width="106" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="F4X-aP-ZNb"/>
@@ -7326,7 +7323,7 @@ YOUR PARCELS</string>
                                                         </mask>
                                                     </variation>
                                                 </button>
-                                                <button opaque="NO" tag="502" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-fl-Y6g">
+                                                <button opaque="NO" tag="502" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-fl-Y6g">
                                                     <rect key="frame" x="210" y="15" width="50" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="86" id="o5u-fF-Czo"/>
@@ -7606,11 +7603,11 @@ YOUR PARCELS</string>
         <image name="verify.png" width="135" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zc7-Fo-yb1"/>
-        <segue reference="y2x-fY-kQh"/>
-        <segue reference="Wpu-yj-lAI"/>
+        <segue reference="v9m-lL-RA1"/>
         <segue reference="C4e-NC-CPd"/>
-        <segue reference="zZd-Ot-8tM"/>
+        <segue reference="Wpu-yj-lAI"/>
+        <segue reference="csE-dC-kVs"/>
         <segue reference="diN-gA-KKY"/>
+        <segue reference="zc7-Fo-yb1"/>
     </inferredMetricsTieBreakers>
 </document>
