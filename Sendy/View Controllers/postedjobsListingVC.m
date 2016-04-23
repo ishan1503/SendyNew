@@ -103,9 +103,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
-        return 0;
+        return 0.001;
     else
         return 25;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.001;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,8 +123,6 @@
 //    dataDict[@"itemId"];
 //    dataDict[@"size"];
 //    dataDict[@"toAddress"];
-    
-    
     if(indexPath.row == 0)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"itemnamecell"];
@@ -127,7 +130,25 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"itemnamecell"];
         }
         UILabel *itemname=(UILabel *)[cell.contentView viewWithTag:101];
+        UIImageView *itemsize=(UIImageView *)[cell.contentView viewWithTag:102];
+        NSString* sizetype =  dataDict[@"size"];
         itemname.text = dataDict[@"itemName"];
+        if([sizetype  isEqual: @"XS"])
+        {
+            [itemsize setImage:[UIImage imageNamed:@"xs_post.png"]];
+        }
+        else if ([sizetype  isEqual: @"S"])
+        {
+            [itemsize setImage:[UIImage imageNamed:@"s_post.png"]];
+        }
+        else if ([sizetype  isEqual: @"M"])
+        {
+            [itemsize setImage:[UIImage imageNamed:@"m_post.png"]];
+        }
+        else if ([sizetype  isEqual: @"L"])
+        {
+            [itemsize setImage:[UIImage imageNamed:@"l_post.png"]];
+        }
     }
     else if (indexPath.row == 1)
     {
@@ -135,10 +156,8 @@
         if (cell == nil){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addresscell"];
         }
-
         UILabel *address=(UILabel *)[cell.contentView viewWithTag:103];
         address.text = dataDict[@"fromAddress"];
-
     }
     else if (indexPath.row == 2)
     {
@@ -156,9 +175,10 @@
         if (cell == nil){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bidreceivedcell"];
         }
-
-        UILabel *bidrec=(UILabel *)[cell.contentView viewWithTag:103];
-        bidrec.text = dataDict[@"bidsCount"];
+        UILabel *bidrec=(UILabel *)[cell.contentView viewWithTag:105];
+        NSLog(@"%@",dataDict[@"bidsCount"]);
+        bidrec.text = [NSString stringWithFormat:@"%@",dataDict[@"bidsCount"]];
+        //dataDict[@"bidsCount"];
     }
     else if (indexPath.row == 4)
     {
@@ -166,13 +186,11 @@
         if (cell == nil){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postjoboperationcell"];
         }
-
         UIButton *mofifybtn=(UIButton *)[cell.contentView viewWithTag:501];
         UIButton *deletebtn=(UIButton *)[cell.contentView viewWithTag:502];
 
         [mofifybtn addTarget:self action:@selector(modifyPost:) forControlEvents:UIControlEventTouchUpInside];
         [deletebtn addTarget:self action:@selector(deletepost:) forControlEvents:UIControlEventTouchUpInside];
-        
     }
     return cell;
 }
@@ -306,6 +324,7 @@
 -(void)deletepostresponse:(NSNotification *)not
 {
     [[NSNotificationCenter defaultCenter]removeObserver:delete_postedjob_notification];
+    [self getdatapostedjoblisting];
 }
 
 
